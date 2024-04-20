@@ -1,11 +1,11 @@
-import NextAuth, { AuthOptions } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const authOptions: AuthOptions = {
+export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -52,6 +52,6 @@ const authOptions: AuthOptions = {
 
 const handler = NextAuth(authOptions) as never;
 
-export { handler as GET, handler as POST, authOptions };
+export { handler as GET, handler as POST };
 
 // Acceso-Registro Motocicletas UAEM

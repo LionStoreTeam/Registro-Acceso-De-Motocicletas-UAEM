@@ -2,10 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function HomePage() {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession();
 
   return !session ? (
     // Si la sesión NO está iniciada se mostrará está porción de código

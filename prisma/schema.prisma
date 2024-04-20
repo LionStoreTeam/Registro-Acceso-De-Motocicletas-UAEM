@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Estudiantes {
+  // Datos Primordiales del usuario //
+  id                  String   @id @default(cuid())
+  matriculaEscolar    String   @unique
+  tipoUsuario         String
+  nombre              String
+  apellidoPaterno     String
+  apellidoMaterno     String
+  correoInstitucional String   @unique
+  // Información de contacto del usuario //
+  direccion           String
+  estado              String
+  municipio           String
+  codigoPostal        String
+  // Datos del vehículo del usuario //
+  matriculaVehicular  String   @unique
+  modelo              String
+  anioRegistro        String
+  infoAdVehiculo      String
+  notasDescriptivas   String
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  // Información adicional descriptiva //
+}
+
+model MaestrosAdministrativos {
+  // Datos Primordiales del usuario //
+  id                  String   @id @default(cuid())
+  matriculaAcademica  String   @unique
+  tipoUsuario         String
+  nombre              String
+  apellidoPaterno     String
+  apellidoMaterno     String
+  correoInstitucional String   @unique
+  // Información de contacto del usuario //
+  direccion           String
+  estado              String
+  municipio           String
+  codigoPostal        String
+  // Datos del vehículo del usuario //
+  matriculaVehicular  String   @unique
+  modelo              String
+  anioRegistro        String
+  infoAdVehiculo      String
+  notasDescriptivas   String
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  // Información adicional descriptiva //
+}
+
+model NoPertenecientesUAEM {
+  // Datos Primordiales del usuario //
+  id                 String   @id @default(cuid())
+  matriculaAsignada  String   @unique
+  tipoUsuario        String
+  nombre             String
+  apellidoPaterno    String
+  apellidoMaterno    String
+  correoGeneral      String   @unique
+  // Información de contacto del usuario //
+  direccion          String
+  estado             String
+  municipio          String
+  codigoPostal       String
+  // Datos del vehículo del usuario //
+  matriculaVehicular String   @unique
+  modelo             String
+  anioRegistro       String
+  infoAdVehiculo     String
+  notasDescriptivas  String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  // Información adicional descriptiva //
+}

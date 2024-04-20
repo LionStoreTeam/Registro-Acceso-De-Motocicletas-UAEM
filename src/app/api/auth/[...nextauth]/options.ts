@@ -1,10 +1,11 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { PrismaClient } from "@prisma/client";
+import { NextAuthOptions } from "next-auth";
 
 const prisma = new PrismaClient();
 
-const authOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",

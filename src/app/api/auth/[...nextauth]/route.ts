@@ -1,5 +1,6 @@
-import authOptions from "./options"; // Update the path accordingly
+import authOptions from "@/lib/configs/auth/authOptions";
 import NextAuth from "next-auth";
 
-const handler = NextAuth(authOptions) as never;
+const handler = NextAuth(authOptions);
+
 export { handler as GET, handler as POST };

@@ -5,7 +5,7 @@ import { NextAuthOptions } from "next-auth";
 
 const prisma = new PrismaClient();
 
-const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
@@ -49,6 +49,5 @@ const authOptions: NextAuthOptions = {
     signIn: "/auth/login",
   },
 };
-export default authOptions;
 
 // 	Acceso-Registro Motocicletas UAEM

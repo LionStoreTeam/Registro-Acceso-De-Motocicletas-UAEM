@@ -1,7 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 export default function RegisterPage() {

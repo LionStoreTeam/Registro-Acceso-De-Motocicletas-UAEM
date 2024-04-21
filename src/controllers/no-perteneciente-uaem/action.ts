@@ -2,9 +2,9 @@
 "use server";
 
 import { z } from "zod"; //npm i zod https://www.npmjs.com/package/zod
-import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import prisma from "@/lib/prisma";
 
 const RegistroNoPertenecienteUAEMSchema = z.object({
   matriculaAsignada: z.string().min(10), // Aplicar condicional para que sea unica e irrepetible
